@@ -6,6 +6,8 @@ Try the example first to see if webaudio and motion sensors work on your phone.
 
 # Lab Instructions
 
+In this lab, you will create sonic interaction by mapping phone movements (shake, tilt, rotation, ...) to parameters of a sound model.
+
 ## Objectives / Learning Goals
 
 By the end of this lab, you will be able to:
@@ -48,6 +50,7 @@ For each interaction:
         tuono.createDSP(audioContext, 1024)
         .then(node => {...
     ```
+4. Edit the parameter address in playAudio(), as written in the comment. The address depends on the sound model chosen (for example, "/englishBell/gate" for the English bell). If skipped, the page is silent and shows no error.
 
 ---
 
@@ -61,6 +64,14 @@ You have two options to run the project locally:
   ```bash
   python3 -m http.server
   ```
+
+---
+
+## Troubleshooting
+
+- No sound on iPhone - If there is no sound on an iPhone, switch the phone from silent to ring mode. The silent switch mutes web audio.
+- Stale GitHub Pages - GitHub Pages takes about a minute to update, and phones often show an old cached version. Try reloading, opening the page in a private tab or, if possible, deleting the cache for that page.
+
 
 ---
 
