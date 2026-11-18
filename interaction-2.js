@@ -52,7 +52,8 @@ windchimes.createDSP(audioContext, 1024)
 //==========================================================================================
 
 function accelerationChange(accx, accy, accz) {
-    // playAudio()
+    if (accx > 2 && accy > 2 && accz > 2) {
+     playAudio();
 }
 
 function rotationChange(rotx, roty, rotz) {
@@ -74,7 +75,7 @@ function deviceTurned() {
 function deviceShaken() {
     shaketimer = millis();
     statusLabels[0].style("color", "pink");
-    playAudio();
+    //playAudio();
 }
 
 function getMinMaxParam(address) {
