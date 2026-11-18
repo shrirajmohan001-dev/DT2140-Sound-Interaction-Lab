@@ -52,9 +52,9 @@ windchimes.createDSP(audioContext, 1024)
 //==========================================================================================
 
 function accelerationChange(accx, accy, accz) {
-    if (accx > 2 && accy > 2 && accz > 2) {
-     playAudio();
-}
+    //if (accx > 2 && accy > 2 && accz > 2) {
+    // playAudio();
+//}
 }
 
 function rotationChange(rotx, roty, rotz) {
@@ -76,7 +76,7 @@ function deviceTurned() {
 function deviceShaken() {
     shaketimer = millis();
     statusLabels[0].style("color", "pink");
-    //playAudio();
+    playAudio();
 }
 
 function getMinMaxParam(address) {
@@ -106,8 +106,8 @@ function playAudio() {
     }
     dspNode.setParamValue("/windchimes/volume", 1)
     dspNode.setParamValue("/windchimes/wind", 1)
-    dspNode.setParamValue("/windchimes/reverb", 0.333);
-    //setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
+    dspNode.setParamValue("/windchimes/reverb", 0.333)
+    setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
 }
 
 //==========================================================================================
