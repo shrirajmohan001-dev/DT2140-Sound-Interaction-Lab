@@ -103,7 +103,7 @@ function playAudio() {
         return;
     }
     dspNode.setParamValue("/windchimes/volume", 1)
-    setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
+    //setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
 }
 
 //==========================================================================================
