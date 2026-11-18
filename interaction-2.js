@@ -102,8 +102,8 @@ function playAudio() {
     if (audioContext.state === 'suspended') {
         return;
     }
-    dspNode.setParamValue("/windchimes/", 1)
-    setTimeout(() => { dspNode.setParamValue("/windschimes/gate", 0) }, 100);
+    dspNode.setParamValue("/windchimes/wet", 1)
+    setTimeout(() => { dspNode.setParamValue("/windschimes/wet", 1) }, 100);
 }
 
 //==========================================================================================
