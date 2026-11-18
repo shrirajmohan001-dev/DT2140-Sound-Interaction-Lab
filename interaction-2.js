@@ -105,6 +105,7 @@ function playAudio() {
     }
     dspNode.setParamValue("/windchimes/volume", 1)
     dspNode.setParamValue("/windchimes/wind", 1)
+    dspNode.setParamValue("/windchimes/reverb", 0.333)
     //setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
 }
 
