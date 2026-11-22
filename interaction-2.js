@@ -107,7 +107,7 @@ function playAudio() {
     dspNode.setParamValue("/windchimes/volume", 1);
     dspNode.setParamValue("/windchimes/Freeverb/Wet", 0.333);
     dspNode.setParamValue("/windchimes/wind_chimes/wind", 1.5);
-    setTimeout(() => { dspNode.setParamValue("/windschimes/wind_chimes/wind", 0) }, 300);
+    setTimeout(() => { dspNode.setParamValue("/windchimes/wind_chimes/wind", 0) }, 900);
 }
 
 //==========================================================================================
