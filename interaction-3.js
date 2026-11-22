@@ -52,7 +52,14 @@ thunder.createDSP(audioContext, 1024)
 //==========================================================================================
 
 function accelerationChange(accx, accy, accz) {
-    // playAudio()
+    const totalAcc = Math.sqrt(accx * accx + accy * accy + accz * accz);
+    const now = millis();
+
+    // Free-fall detection (total acceleration drops near 0) with a 1-second cooldown
+    if (totalAcc < 2.5 && now - lastThunder > 1000) {
+        lastThunder = now;
+        playAudio();
+    }
 }
 
 function rotationChange(rotx, roty, rotz) {
@@ -95,15 +102,15 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio(pressure) {
+function playAudio() {
     if (!dspNode) {
         return;
     }
     if (audioContext.state === 'suspended') {
         return;
     }
-    console.log(pressure)
-    dspNode.setParamValue("/thunder/thunder", Volume)
+    dspNode.setParamValue("/thunder/rumble", 1);
+    setTimeout(() => { dspNode.setParamValue("/thunder/rumble", 0);}, 100);
 }
 
 //==========================================================================================

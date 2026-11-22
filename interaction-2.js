@@ -104,10 +104,10 @@ function playAudio() {
     if (audioContext.state === 'suspended') {
         return;
     }
-    dspNode.setParamValue("/windchimes/volume", 1)
-    dspNode.setParamValue("/windchimes/wind", 1)
-    dspNode.setParamValue("/windchimes/reverb", 0.333)
-    setTimeout(() => { dspNode.setParamValue("/windschimes/volume", 1) }, 100);
+    dspNode.setParamValue("/windchimes/volume", 1);
+    dspNode.setParamValue("/windchimes/Freeverb/Wet", 0.333);
+    dspNode.setParamValue("/windchimes/wind_chimes/wind", 1.5);
+    setTimeout(() => { dspNode.setParamValue("/windschimes/wind_chimes/wind", 0) }, 300);
 }
 
 //==========================================================================================
