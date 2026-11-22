@@ -12,7 +12,7 @@ let dspNodeParams = null;
 let jsonParams = null;
 
 // Change here to ("tuono") depending on your wasm file name
-const dspName = "thunder";
+const dspName = "tuono";
 const instance = new FaustWasm2ScriptProcessor(dspName);
 
 // output to window or npm package module
@@ -25,7 +25,7 @@ if (typeof module === "undefined") {
 }
 
 // The name should be the same as the WASM file, so change tuono with brass if you use brass.wasm
-thunder.createDSP(audioContext, 1024)
+tuono.createDSP(audioContext, 1024)
     .then(node => {
         dspNode = node;
         dspNode.connect(audioContext.destination);
@@ -51,12 +51,13 @@ thunder.createDSP(audioContext, 1024)
 //
 //==========================================================================================
 
+let lastThunder = 0;
 function accelerationChange(accx, accy, accz) {
     const totalAcc = Math.sqrt(accx * accx + accy * accy + accz * accz);
     const now = millis();
 
     // Free-fall detection (total acceleration drops near 0) with a 1-second cooldown
-    if (totalAcc < 2.5 && now - lastThunder > 1000) {
+    if (totalAcc > 11 && now - lastThunder > 1500) {
         lastThunder = now;
         playAudio();
     }
@@ -81,7 +82,7 @@ function deviceTurned() {
 function deviceShaken() {
     shaketimer = millis();
     statusLabels[0].style("color", "pink");
-    playAudio();
+    //playAudio();
 }
 
 function getMinMaxParam(address) {
